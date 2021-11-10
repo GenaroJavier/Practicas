@@ -1,0 +1,56 @@
+.contenedor {
+    width: 100vw; 
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-slider {
+    width: 1200px;
+    height: 100px;
+    position: relative;
+    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.contenedor-img  {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    animation: slideshow 10s linear infinite;
+}
+
+.contenedor-img img {
+    height: 70px;
+    padding: 0 60px 0 60px;
+}
+
+@keyframes slideshow {
+    0% {transform: translateX(0);}
+    100% {transform: translateX(-100%);}
+}
+
+/*Efecto de desenfoque*/
+.contenedor-slider::before, .contenedor-slider::after {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    content: "";
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
+}
+
+.contenedor-slider::before {
+    left: 0;
+    top: 0;
+}
+
+.contenedor-slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
